@@ -1,0 +1,903 @@
+{
+	"info": {
+		"_postman_id": "da823e2d-fa7b-40e7-87b7-31052ef7194c",
+		"name": "Invoice Generator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18895287"
+	},
+	"item": [
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Delete invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/invoice?ids=[1,2]",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "[1,2]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/invoice?limit=10&pageNo=0&invoiceNumber",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "invoiceNumber",
+									"value": null
+								},
+								{
+									"key": "clientId",
+									"value": null,
+									"description": "Client id to filter invoice against",
+									"disabled": true
+								},
+								{
+									"key": "importerId",
+									"value": "3213",
+									"description": "Importer id to filter invoice against",
+									"disabled": true
+								},
+								{
+									"key": "ntn",
+									"value": "2131",
+									"description": "Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "goods",
+									"value": "Taaha",
+									"description": "Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "goodNumber",
+									"value": "Taaha",
+									"description": "Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "hsCODE",
+									"value": "+923212323",
+									"description": "Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "FBRCode",
+									"value": "client",
+									"description": "Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Id of invoice to get",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"invoiceNumber\":\"INV-001\",\r\n            \"invoiceDate\":\"2025-03-04T18:41:07.243Z\",\r\n            \"clientId\":1,\r\n            \"importerId\":1,\r\n            \"templateId\":1,\r\n\r\n            \"goods\":\"Car Parts\",\r\n            \"goodNumber\":\"CPN101\",\r\n\r\n            \"hsCODE\":\"CPA123\",\r\n\r\n            \"FBRCode\":\"FBD123\",\r\n\r\n            \"quantityUnits\":10,\r\n\r\n            \"value\":1000,\r\n\r\n            \"GST\":100,\r\n\r\n            \"VAT\":5,\r\n\r\n            \"unitPrice\":50\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/invoice",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"invoiceNumber\":\"INV-001\",\r\n            \"invoiceDate\":\"2025-03-04T18:41:07.243Z\",\r\n            \"clientId\":1,\r\n            \"importerId\":1,\r\n            \"templateId\":1,\r\n\r\n            \"goods\":\"Car Parts\",\r\n            \"goodNumber\":\"CPN101\",\r\n\r\n            \"hsCODE\":\"CPA123\",\r\n\r\n            \"FBRCode\":\"FBD123\",\r\n\r\n            \"quantityUnits\":10,\r\n\r\n            \"value\":1000,\r\n\r\n            \"GST\":100,\r\n\r\n            \"VAT\":5,\r\n\r\n            \"unitPrice\":50\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/invoice?id=11",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"invoice"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Template",
+			"item": [
+				{
+					"name": "Create Template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Free Template\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/template",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Templates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/template?limit=100&pageNo=0",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"template"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "id",
+									"value": "12",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Template",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Updated Free Template 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/template?id=2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"template"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Templates",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/template?ids=[1,2]",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"template"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "[1,2]"
+								},
+								{
+									"key": "ids[]",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Delete Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/client?ids=[1,2]",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "[1,2]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/client?limit=10&pageNo=0",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "cnic",
+									"value": "3213",
+									"description": "CNIC - Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "ntn",
+									"value": "2131",
+									"description": "NTN  - Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Taaha",
+									"description": "Name - Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "bussinessName",
+									"value": "Taaha",
+									"description": "Business Namee - Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "+923212323",
+									"description": "phone number of client - Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "client",
+									"description": "one of client or importer",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the client or importer to get",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Clients | Importers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\":\"Test Client\",\r\n        \"bussinessName\":\"Test Business Name\",\r\n        \"cnic\":\"RANDOM_CNIC\",\r\n        \"ntn\":\"RANDOM_NTN\",\r\n        \"address\":\"Clients address\",\r\n        \"phone\":\"Client Phone\",\r\n        \"type\":\"client\"\r\n    },\r\n     {\r\n        \"name\":\"Test Importer\",\r\n        \"bussinessName\":\"Test Business Name\",\r\n        \"cnic\":\"RANDOM_CNIC\",\r\n        \"ntn\":\"RANDOM_NTN\",\r\n        \"address\":\"Importer address\",\r\n        \"phone\":\"Importer Phone\",\r\n        \"type\":\"importer\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/client",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\":\"Test Client\",\r\n        \"bussinessName\":\"Test Business Name\",\r\n        \"cnic\":\"RANDOM_CNIC\",\r\n        \"ntn\":\"RANDOM_NTN\",\r\n        \"address\":\"Clients address\",\r\n        \"phone\":\"Client Phone\",\r\n        \"type\":\"client\"\r\n    }\r\n    \r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/client?id=123",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Reset Password For User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\":\"taaha\",\r\n   \"password\":\"randompw\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user/reset-password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user?ids=[1,2]",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "[1,2]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/user?limit=10&pageNo=0",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "username",
+									"value": "3213",
+									"description": " Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "firstName",
+									"value": "2131",
+									"description": " Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Taaha",
+									"description": " Text Search for partial matching",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "Taaha",
+									"description": "role to find",
+									"disabled": true
+								},
+								{
+									"key": "teamId",
+									"value": "+923212323",
+									"description": "team id to filter users against",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "id of the user to get",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Clients | Importers Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"taaha123\",\r\n    \"firstName\":\"taaha\",\r\n    \"lastName\":\"waseem\",\r\n    \"password\":\"randompw\",\r\n    \"role\":\"employee\",\r\n    \"teamId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"taaha123\",\r\n    \"firstName\":\"taaha\",\r\n    \"lastName\":\"waseem\",\r\n    \"role\":\"employee\",\r\n    \"teamId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/user?id=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('token',pm.response.json().data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\":\"taaha\",\r\n   \"password\":\"randompw\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"password\":\"randompw\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get Reports",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"startDate\":\"2025-03-04T18:41:07.243Z\",\r\n   \"endDate\":\"2025-03-04T18:41:07.243Z\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/reports",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -11,6 +11,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect authenticated users away from auth pages
   if (isPublicPath && authToken) {
+    // Add Passport validation here
     return NextResponse.redirect(new URL('/', request.url));
   }
 
