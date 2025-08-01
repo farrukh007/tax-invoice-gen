@@ -224,7 +224,7 @@ export const Sidebar = () => {
           <div className="mb-4">
             <div className="flex items-center space-x-3 p-2 rounded-lg bg-gray-50 dark:bg-gray-800">
               <Avatar className="flex-shrink-0">
-                <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.email}`} />
+                <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} />
                 <AvatarFallback>
                   <User className="h-4 w-4" />
                 </AvatarFallback>
@@ -236,8 +236,8 @@ export const Sidebar = () => {
                   exit={{ opacity: 0, x: -10 }}
                   className="flex-1 min-w-0"
                 >
-                  <p className="text-sm font-medium truncate">{user.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
+                  <p className="text-sm font-medium truncate">{user.username}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">ID: {user.id}</p>
                 </motion.div>
               )}
             </div>

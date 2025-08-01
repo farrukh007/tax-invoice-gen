@@ -7,11 +7,12 @@ export function middleware(request: NextRequest) {
   const isPublicPath = publicPaths.includes(request.nextUrl.pathname);
 
   // Get the token from cookies
-  const authToken = request.cookies.get('user');
+  const authToken = request.cookies.get('authToken') || 
+                   (request.headers.get('authorization')?.startsWith('Bearer ') ? 
+                    request.headers.get('authorization')?.substring(7) : null);
 
   // Redirect authenticated users away from auth pages
   if (isPublicPath && authToken) {
-    // Add Passport validation here
     return NextResponse.redirect(new URL('/', request.url));
   }
 

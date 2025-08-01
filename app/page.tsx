@@ -39,8 +39,11 @@ export default function HomePage() {
   useEffect(() => {
     if (!isLoading && !user) {
       router.push('/auth/signin');
+    } else if (user && !localStorage.getItem('authToken')) {
+      // If user exists but no token, sign out
+      signOut();
     }
-  }, [user, isLoading, router]);
+  }, [user, isLoading, router, signOut]);
 
   if (isLoading || !user) {
     return null;
